@@ -1,3 +1,5 @@
+Live demo [here](https://crwn-live-jaykay24.herokuapp.com/)
+
 # Crown Clothing
 
 Crown Clothing is an E-Commerce application built using React, Redux and Hooks.
