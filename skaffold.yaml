@@ -1,0 +1,26 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: jaykay24/crwn-client
+      context: crwn-client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.js"
+            dest: .
+    - image: jaykay24/crwn-server
+      context: crwn-server
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "*.js"
+            dest: .

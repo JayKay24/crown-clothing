@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crwn-server-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crwn-server
+  template:
+    metadata:
+      labels:
+        app: crwn-server
+    spec:
+      containers:
+        - name: crwn-server
+          image: jaykay24/crwn-server
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: crwn-server-srv
+spec:
+  selector:
+    app: crwn-server
+  ports:
+    - name: crwn-server
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
