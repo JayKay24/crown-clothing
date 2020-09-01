@@ -1,5 +1,11 @@
-describe('App E2E', () => {
-  it('should assert that true is equal to true', () => {
-    expect(true).to.equal(true);
+describe("App E2E", () => {
+  it("successfully loads", () => {
+    cy.visit("/");
+  });
+
+  it("should display the navigation bar", () => {
+    cy.visit("/");
+
+    cy.get("nav").contains("SHOP");
   });
 });
